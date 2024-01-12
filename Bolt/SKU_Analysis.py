@@ -18,7 +18,7 @@ st.set_page_config(page_title="Bolt SDA Assessment!!!", page_icon="/Users/shaikh
 # Inserting an image into the title
 # image = Image.open("utilities/Bolt_Logo.png")
 
-t1, t2 = st.columns((2))
+t1, t2 = st.columns([1,2])
 
 # with t1:
 #     st.image(image, use_column_width=False, width=150)
