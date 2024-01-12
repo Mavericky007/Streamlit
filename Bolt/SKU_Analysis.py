@@ -8,8 +8,6 @@ import plotly.express as px
 import pandas as pd
 import os
 import warnings
-import matplotlib.pyplot as plt
-import seaborn as sns
 
 warnings.filterwarnings('ignore') # helps ignore all warnings in the Dashboard
 
