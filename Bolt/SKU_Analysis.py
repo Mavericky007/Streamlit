@@ -8,6 +8,8 @@ import plotly.express as px
 import pandas as pd
 import os
 import warnings
+import requests
+import io
 
 warnings.filterwarnings('ignore') # helps ignore all warnings in the Dashboard
 
@@ -34,7 +36,10 @@ if fl is not None:
     st.write(filename)
     df = pd.read_csv(filename)
 else:
-    df = pd.read_csv("data1.csv")
+    url="https://raw.githubusercontent.com/Mavericky007/Streamlit/main/Bolt/data1.csv"
+    s=requests.get(url).content
+    df=pd.read_csv(io.StringIO(s.decode('utf-8')))
+    # df = pd.read_csv("data1.csv")
     # os.chdir(r"Bolt/data")
     # df = pd.read_excel("data1.xlsx")
 
