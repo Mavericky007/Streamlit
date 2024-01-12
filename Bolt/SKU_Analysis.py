@@ -32,7 +32,7 @@ if fl is not None:
     st.write(filename)
     df = pd.read_csv(filename, encoding = "ISO-8859-1")
 else:
-    os.chdir(r"Bolt/data")
+    # os.chdir(r"Bolt/data")
     # df = pd.read_csv("Superstore.csv", encoding = "ISO-8859-1")
     df = pd.read_excel("data1.xlsx")
 
