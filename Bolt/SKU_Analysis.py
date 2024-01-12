@@ -14,7 +14,7 @@ warnings.filterwarnings('ignore') # helps ignore all warnings in the Dashboard
 st.set_page_config(page_title="Bolt SDA Assessment!!!", page_icon="/Users/shaikh.jounaid/Desktop/flash.png",layout="wide")
 
 # Inserting an image into the title
-image = "/Users/shaikh.jounaid/streamlit/Bolt/utilities/Bolt-Logo.png"
+image = "Bolt/utilities/Bolt-Logo.png"
 
 t1, t2 = st.columns([1, 2])
 
@@ -32,7 +32,7 @@ if fl is not None:
     st.write(filename)
     df = pd.read_csv(filename, encoding = "ISO-8859-1")
 else:
-    os.chdir(r"/Users/shaikh.jounaid/streamlit/Bolt/data")
+    os.chdir(r"Bolt/data")
     # df = pd.read_csv("Superstore.csv", encoding = "ISO-8859-1")
     df = pd.read_excel("data1.xlsx")
 
