@@ -32,9 +32,9 @@ fl = st.file_uploader(":file_folder: Upload a file",type=(["csv","txt","xlsx","x
 if fl is not None:
     filename = fl.name
     st.write(filename)
-    df = pd.read_csv(filename, encoding = "ISO-8859-1")
+    df = pd.read_csv(filename)
 else:
-    df = pd.read_csv("data1.csv", encoding = "ISO-8859-1")
+    df = pd.read_csv("data1.csv")
     # os.chdir(r"Bolt/data")
     # df = pd.read_excel("data1.xlsx")
 
