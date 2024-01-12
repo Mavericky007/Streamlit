@@ -1,3 +1,4 @@
 plotly-express
 openpyxl
 streamlit
+pillow
