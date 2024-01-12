@@ -18,7 +18,7 @@ st.set_page_config(page_title="Bolt SDA Assessment!!!", page_icon="/Users/shaikh
 
 t1, t2 = st.columns([1, 2])
 
-t1.image("Bolt/utilities/Bolt_Logo.png", use_column_width=False,width=150)
+t1.image("Bolt/utilities/Bolt_Logo.png",width=150)
 with t2:
     st.title("Grocery Stores SKUs Analysis")
     st.markdown('<style>div.block-container{padding-top:3rem;}</style>',unsafe_allow_html=True)
