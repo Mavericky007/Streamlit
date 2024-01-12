@@ -45,7 +45,7 @@ else:
 
 col1, col2 = st.columns((2))
 
-# df["Time"] = pd.to_datetime(df["Time"])  # Incase the time column was not in datatime format
+df["Time"] = pd.to_datetime(df["Time"])  # Incase the time column was not in datatime format
 
 # Getting the min and max date
 startDate = pd.to_datetime(df["Time"]).min()
