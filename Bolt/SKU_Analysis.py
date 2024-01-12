@@ -17,8 +17,10 @@ st.set_page_config(page_title="Bolt SDA Assessment!!!", page_icon="/Users/shaikh
 # image = Image.open("utilities/Bolt_Logo.png")
 
 t1, t2 = st.columns((2))
+
 # with t1:
 #     st.image(image, use_column_width=False, width=150)
+
 with t2:
     st.title("Grocery Stores SKUs Analysis")
     st.markdown('<style>div.block-container{padding-top:3rem;}</style>',unsafe_allow_html=True)
@@ -32,9 +34,9 @@ if fl is not None:
     st.write(filename)
     df = pd.read_csv(filename, encoding = "ISO-8859-1")
 else:
+    df = pd.read_csv("data1.csv", encoding = "ISO-8859-1")
     # os.chdir(r"Bolt/data")
-    # df = pd.read_csv("Superstore.csv", encoding = "ISO-8859-1")
-    df = pd.read_excel("data1.xlsx")
+    # df = pd.read_excel("data1.xlsx")
 
 col1, col2 = st.columns((2))
 
