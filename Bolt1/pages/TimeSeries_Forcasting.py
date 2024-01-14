@@ -17,4 +17,4 @@ import streamlit as st
 
 st.markdown("## The Expected total number of orders in March are : 75,698.29!")
 
-st.markdown("### Follow this link to the [forcasting Analysis](https://github.com/Mavericky007/Streamlit/blob/main/Bolt1/pages/order_analysis.pdf)")
+st.markdown("### Follow this link to the [forcasting Analysis](https://github.com/Mavericky007/Streamlit/blob/master/Bolt1/order_analysis.ipynb)")
