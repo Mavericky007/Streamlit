@@ -174,7 +174,7 @@ datewise_order_data2 = Portugal_df.groupby(['Country', 'Created Date']).size().r
 # fitler dataframe for Ghana
 # datewise_order_data_ghana = datewise_order_data[datewise_order_data['Country'] == 'Ghana']
 
-fig2 = px.line(datewise_order_data2, x='Created Date', y='Total Orders', height=500, width = 1000, template="gridon",color_discrete_sequence=["#ffff00"])
+fig2 = px.line(datewise_order_data2, x='Created Date', y='Total Orders', height=500, width = 1000, template="gridon",color_discrete_sequence=["#FEE715"])
 
 st.plotly_chart(fig2,use_container_width=True)
 
@@ -205,7 +205,7 @@ day_order_data['day'] = pd.Categorical(day_order_data['day'], categories=days_or
 # Sort the data frame based on the 'day' column to ensure the order is maintained in the plot
 day_order_data = day_order_data.sort_values('day')
 
-fig2 = px.line(day_order_data, x='day', y='Total Orders', height=500, width = 1000, template="gridon",color_discrete_sequence=["#ffff00"])
+fig2 = px.line(day_order_data, x='day', y='Total Orders', height=500, width = 1000, template="gridon",color_discrete_sequence=["#FEE715"])
 
 st.plotly_chart(fig2,use_container_width=True)
 
