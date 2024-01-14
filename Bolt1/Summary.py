@@ -234,8 +234,6 @@ fig2 = px.line(linechart, x='Created Date', y='Orders Value', color='Country', h
 st.plotly_chart(fig2,use_container_width=True)
 
 
-
-
-
+st.markdown("## Go to the next tab to look into [Seasonality](https://bolt-order-analysis.streamlit.app/Seasonality#bolt-eats-order-analysis)")
 
 

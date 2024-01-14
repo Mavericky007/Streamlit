@@ -12,6 +12,7 @@ import io
 import plotly.figure_factory as ff
 import numpy as np
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 warnings.filterwarnings('ignore') # helps ignore all warnings in the Dashboard
 
@@ -26,7 +27,7 @@ t1, t2 = st.columns([1,2])
 #     st.image("Bolt_Logo.png", use_column_width=False, width=150)
 
 with t2:
-    st.title("Bolt Eats Order Analysis")
+    st.title("Bolt Eats Order Seasonality")
     st.markdown('<style>div.block-container{padding-top:3rem;}</style>',unsafe_allow_html=True)
 
 # enabling the user to upload there own file to analyse data of similar Schema but different time range
@@ -107,3 +108,164 @@ elif Order_State:
     filtered_df = df3[df3["Order State"].isin(Order_State)]
 else:
     filtered_df = df3[df3["Country"].isin(Country) & df3["City"].isin(City) & df3["Order State"].isin(Order_State)]
+
+
+# -----------------------Ploting a line chart for seasonality in Ghana-----------------------
+    
+ghana_df = filtered_df[filtered_df['Country'] == 'Ghana']
+
+datewise_order_data1 = ghana_df.groupby(['Country', 'Created Date']).size().reset_index(name='Total Orders')
+
+st.markdown("## Checking for seasonality in Ghana")
+
+# fitler dataframe for Ghana
+# datewise_order_data_ghana = datewise_order_data[datewise_order_data['Country'] == 'Ghana']
+
+fig2 = px.line(datewise_order_data1, x='Created Date', y='Total Orders', height=500, width = 1000, template="gridon")
+
+st.plotly_chart(fig2,use_container_width=True)
+
+# ---------------------------Checking for day of the weeks behaviour in Ghana--------------------------
+
+
+st.markdown("## Checking for day of the week order patern for Ghana")
+
+
+# creating a column with day of the week
+ghana_df['day'] = ghana_df['Created Date'].dt.day_name()
+
+# Aggregate data by Country and Created Date for the total order count
+day_order_data = ghana_df.groupby(['Country', 'day']).size().reset_index(name='Total Orders')
+
+# Define the order of the days
+days_order = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+
+# Convert 'day' column to a categorical type with the specified order
+day_order_data['day'] = pd.Categorical(day_order_data['day'], categories=days_order, ordered=True)
+
+# Sort the data frame based on the 'day' column to ensure the order is maintained in the plot
+day_order_data = day_order_data.sort_values('day')
+
+fig2 = px.line(day_order_data, x='day', y='Total Orders', height=500, width = 1000, template="gridon")
+
+st.plotly_chart(fig2,use_container_width=True)
+
+
+# -----------------------Ploting a line chart for seasonality in Portugal-----------------------
+    
+st.markdown("## Checking for seasonality in Portugal")
+
+Portugal_df = filtered_df[filtered_df['Country'] == 'Portugal']
+
+datewise_order_data2 = Portugal_df.groupby(['Country', 'Created Date']).size().reset_index(name='Total Orders')
+
+# fitler dataframe for Ghana
+# datewise_order_data_ghana = datewise_order_data[datewise_order_data['Country'] == 'Ghana']
+
+fig2 = px.line(datewise_order_data2, x='Created Date', y='Total Orders', height=500, width = 1000, template="gridon",color_discrete_sequence=["#ffff00"])
+
+st.plotly_chart(fig2,use_container_width=True)
+
+# ---------------------------Checking for day of the weeks behaviour in Portugal--------------------------
+
+
+st.markdown("## Checking for day of the week order patern for Portugal")
+
+
+# creating a column with day of the week
+Portugal_df['day'] = Portugal_df['Created Date'].dt.day_name()
+
+# Aggregate data by Country and Created Date for the total order count
+day_order_data = Portugal_df.groupby(['Country', 'day']).size().reset_index(name='Total Orders')
+
+# Define the order of the days
+days_order = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+
+# Convert 'day' column to a categorical type with the specified order
+day_order_data['day'] = pd.Categorical(day_order_data['day'], categories=days_order, ordered=True)
+
+# Sort the data frame based on the 'day' column to ensure the order is maintained in the plot
+day_order_data = day_order_data.sort_values('day')
+
+fig2 = px.line(day_order_data, x='day', y='Total Orders', height=500, width = 1000, template="gridon",color_discrete_sequence=["#ffff00"])
+
+st.plotly_chart(fig2,use_container_width=True)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# # ---------------------------Checking for day of the weeks behaviour--------------------------
+
+
+# st.markdown("## Checking for day of the week order patern for Ghana")
+
+
+# # creating a column with day of the week
+# filtered_df['day'] = filtered_df['Created Date'].dt.day_name()
+
+# # Aggregate data by Country and Created Date for the total order count
+# day_order_data = filtered_df.groupby(['Country', 'day']).size().reset_index(name='Total Orders')
+
+# # Define the order of the days
+# days_order = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+
+# # Convert 'day' column to a categorical type with the specified order
+# day_order_data['day'] = pd.Categorical(day_order_data['day'], categories=days_order, ordered=True)
+
+# # Sort the data frame based on the 'day' column to ensure the order is maintained in the plot
+# day_order_data = day_order_data.sort_values('day')
+
+# fig2 = px.line(day_order_data, x='day', y='Total Orders', color='Country', height=500, width = 1000, template="gridon")
+
+# st.plotly_chart(fig2,use_container_width=True)
+
+
+
+# # # Now Creating the Plot Below
+# # plt.figure(figsize=(15, 7))
+# # sns.lineplot(data=day_order_data, x='day', y='Total Orders', hue='Country', style='Country', 
+# #              markers=True, dashes=False)
+
+# # plt.title('Total Orders by Day for Each Country')
+# # plt.xlabel('Day')
+# # plt.ylabel('Total Orders')
+# # plt.legend(title='Country')
+# # plt.grid(True)
+# # plt.show()
+
+
+
+
+
+
+
+
+
+
+
+
+
+# linechart = filtered_df.groupby(['Created Date', 'Country'])["Order Value(Gross)"].sum().reset_index(name='Orders Value')
+
+# # Plotting the line chart
+# fig2 = px.line(linechart, x='Created Date', y='Orders Value', color='Country', height=500, width = 1000, template="gridon")
+
+# st.plotly_chart(fig2,use_container_width=True)
