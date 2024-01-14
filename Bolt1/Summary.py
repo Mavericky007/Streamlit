@@ -12,6 +12,7 @@ import io
 import plotly.figure_factory as ff
 import numpy as np
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 warnings.filterwarnings('ignore') # helps ignore all warnings in the Dashboard
 
