@@ -125,6 +125,12 @@ fig2 = px.line(datewise_order_data1, x='Created Date', y='Total Orders', height=
 
 st.plotly_chart(fig2,use_container_width=True)
 
+text = """
+### From the above plot we see some seasonality in Ghana (But look below for the more deepdive)
+"""
+
+st.markdown(text)
+
 # ---------------------------Checking for day of the weeks behaviour in Ghana--------------------------
 
 
@@ -150,6 +156,12 @@ fig2 = px.line(day_order_data, x='day', y='Total Orders', height=500, width = 10
 
 st.plotly_chart(fig2,use_container_width=True)
 
+text = """
+### From the above plot it is evident that Ghana has more inflow of orders on "Tuesday","Wednesday","Thursday"
+"""
+
+st.markdown(text)
+
 
 # -----------------------Ploting a line chart for seasonality in Portugal-----------------------
     
@@ -165,6 +177,12 @@ datewise_order_data2 = Portugal_df.groupby(['Country', 'Created Date']).size().r
 fig2 = px.line(datewise_order_data2, x='Created Date', y='Total Orders', height=500, width = 1000, template="gridon",color_discrete_sequence=["#ffff00"])
 
 st.plotly_chart(fig2,use_container_width=True)
+
+text = """
+### From the above plot we see some seasonality in Portugal (But look below for the more deepdive)
+"""
+
+st.markdown(text)
 
 # ---------------------------Checking for day of the weeks behaviour in Portugal--------------------------
 
@@ -190,3 +208,9 @@ day_order_data = day_order_data.sort_values('day')
 fig2 = px.line(day_order_data, x='day', y='Total Orders', height=500, width = 1000, template="gridon",color_discrete_sequence=["#ffff00"])
 
 st.plotly_chart(fig2,use_container_width=True)
+
+text = """
+### From the above plot it is evident that Ghana has more inflow of orders on "Wednesday","Thursday","Friday"
+"""
+
+st.markdown(text)
