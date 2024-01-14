@@ -233,6 +233,17 @@ fig2 = px.line(linechart, x='Created Date', y='Orders Value', color='Country', h
 
 st.plotly_chart(fig2,use_container_width=True)
 
+# --------------------------Plotting a delivery histrogram--------------------------
+
+st.subheader('This is a histogram of delivery up to 60 minutes')
+st.write("This Histogram helps us understand the volume of Users that had a potential bad experience")
+
+fig = px.histogram(data[data['Delivery Time'] <= 100], x='Delivery Time', nbins=60, color_discrete_sequence=['#ffd700'])
+fig.update_xaxes(title_text='Delivery Time (minutes)')
+fig.update_yaxes(title_text='Total Orders')
+fig.update_layout(xaxis_range=[0, 60])  # Limiting x-axis to 60 minutes
+# fig.update_layout(dragmode='select')
+st.plotly_chart(fig, use_container_width=True)
 
 st.markdown("## Go to the next tab to look into [Seasonality](https://bolt-order-analysis.streamlit.app/Seasonality#bolt-eats-order-analysis)")
 
